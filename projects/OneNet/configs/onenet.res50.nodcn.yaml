@@ -1,0 +1,24 @@
+_BASE_: "Base-OneNet.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/torchvision/R-50.pkl"
+  BACKBONE:
+      FREEZE_AT: 0
+  RESNETS:
+    NORM: "BN"
+    DEPTH: 50
+    STRIDE_IN_1X1: False
+  OneNet:
+    DCN: False
+    NUM_CLASSES: 80
+DATASETS:
+  TRAIN: ("coco_2017_train",)
+  TEST:  ("coco_2017_val",)
+SOLVER:
+  IMS_PER_BATCH: 64
+  STEPS: (210000, 250000)
+  MAX_ITER: 270000
+INPUT:
+  CROP:
+    ENABLED: True
+  FORMAT: "RGB"
+OUTPUT_DIR: 'output_onenet_r50nodcn'
