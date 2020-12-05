@@ -19,7 +19,7 @@ We provide two models
 Method | inf_time | train_time | box AP | download
 --- |:---:|:---:|:---:|:---:
 [R50_dcn](projects/OneNet/configs/onenet.res50.dcn.yaml)     | 67 FPS | 36h  | 35.0 | 
-[R50_nodcn](projects/OneNet/configs/onenet.res50.nodcn.yaml) | 73 FPS | 29h  |      | 
+[R50_nodcn](projects/OneNet/configs/onenet.res50.nodcn.yaml) | 73 FPS | 29h  | 32.7 | 
 
 
 #### Notes
