@@ -86,8 +86,7 @@ if __name__ == "__main__":
         for path in tqdm.tqdm(args.input, disable=not args.output):
             # use PIL, to be consistent with evaluation
 #             img = read_image(path, format="BGR")
-            # OneNet uses RGB input as default 
-            img = read_image(path, format="RGB")
+            img = read_image(path, format="RGB") # OneNet uses RGB input as default 
             start_time = time.time()
             predictions, visualized_output = demo.run_on_image(img, args.confidence_threshold)
             logger.info(
