@@ -20,7 +20,7 @@ def setup_cfg(args):
     # load config from file and command-line arguments
     cfg = get_cfg()
     from projects.OneNet.onenet import add_onenet_config
-    add_sparsercnn_config(cfg)
+    add_onenet_config(cfg)
     cfg.merge_from_file(args.config_file)
     cfg.merge_from_list(args.opts)
     # Set score_threshold for builtin models
@@ -85,6 +85,8 @@ if __name__ == "__main__":
             assert args.input, "The input path(s) was not found"
         for path in tqdm.tqdm(args.input, disable=not args.output):
             # use PIL, to be consistent with evaluation
+#             img = read_image(path, format="BGR")
+            # OneNet uses RGB input as default 
             img = read_image(path, format="RGB")
             start_time = time.time()
             predictions, visualized_output = demo.run_on_image(img, args.confidence_threshold)
