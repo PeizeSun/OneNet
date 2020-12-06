@@ -1,10 +1,11 @@
-## OneNet: End-to-End One-Stage Object Detection
+## OneNet: End-to-End One-Stage Object Detection by Classification Cost
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+![](onenet.jpeg)
 
 ## Paper
-[OneNet: End-to-End One-Stage Object Detection](https://peizesun.github.io/OneNet.pdf)
+[OneNet: End-to-End One-Stage Object Detection by Classification Cost](https://peizesun.github.io/OneNet.pdf)
 
 ## Comming
   - [ ] Provide models and logs
