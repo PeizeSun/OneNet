@@ -4,7 +4,7 @@
 
 ![](onenet.jpeg)
 
-## Paper
+## Introduction
 [OneNet: End-to-End One-Stage Object Detection by Classification Cost](https://peizesun.github.io/OneNet.pdf)
 
 ## Comming
