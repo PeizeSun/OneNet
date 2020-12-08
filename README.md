@@ -4,7 +4,7 @@
 
 ![](onenet.jpeg)
 
-Comparisons of different label assignment methods. H and W are height and width of feature map, respectively,
+**Comparisons of different label assignment methods**. H and W are height and width of feature map, respectively,
 K is number of object categories. Previous works on one-stage object detection assign labels by only position cost, such
 as (a) box IoU or (b) point distance between sample and ground-truth. In our method, however, (c) classification cost is
 additionally introduced. We discover that classification cost is the key to the success of end-to-end. Without classification
