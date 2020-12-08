@@ -4,6 +4,13 @@
 
 ![](onenet.jpeg)
 
+Comparisons of different label assignment methods. H and W are height and width of feature map, respectively,
+K is number of object categories. Previous works on one-stage object detection assign labels by only position cost, such
+as (a) box IoU or (b) point distance between sample and ground-truth. In our method, however, (c) classification cost is
+additionally introduced. We discover that classification cost is the key to the success of end-to-end. Without classification
+cost, only location cost leads to redundant boxes of high confidence scores in inference, making NMS post-processing a
+necessary component.
+
 ## Introduction
 [OneNet: End-to-End One-Stage Object Detection by Classification Cost](https://peizesun.github.io/OneNet.pdf)
 
