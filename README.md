@@ -1,4 +1,4 @@
-## OneNet: End-to-End One-Stage Object Detection by Classification Cost
+## OneNet: Towards End-to-End One-Stage Object Detection
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -12,7 +12,7 @@ cost, only location cost leads to redundant boxes of high confidence scores in i
 necessary component.
 
 ## Introduction
-[OneNet: End-to-End One-Stage Object Detection by Classification Cost](https://peizesun.github.io/OneNet.pdf)
+[OneNet: Towards End-to-End One-Stage Object Detection](https://peizesun.github.io/OneNet.pdf)
 
 ## Comming
   - [ ] Provide models and logs
@@ -26,7 +26,7 @@ We provide two models
 
 Method | inf_time | train_time | box AP | download
 --- |:---:|:---:|:---:|:---:
-[R50_dcn](projects/OneNet/configs/onenet.res50.dcn.yaml)     | 67 FPS | 36h  | 35.0 | 
+[R50_dcn](projects/OneNet/configs/onenet.res50.dcn.yaml)     | 67 FPS | 36h  | 35.2 | 
 [R50_nodcn](projects/OneNet/configs/onenet.res50.nodcn.yaml) | 73 FPS | 29h  | 32.7 | 
 
 
@@ -93,8 +93,8 @@ If you use OneNet in your research or wish to refer to the baseline results publ
 ```BibTeX
 
 @article{peize2020onenet,
-  title   =  {{OneNet}: End-to-End One-Stage Object Detection},
-  author  =  {Peize Sun and Yi Jiang and Zehuan Yuan and Changhu Wang and Ping Luo},
+  title   =  {{OneNet}: Towards End-to-End One-Stage Object Detection},
+  author  =  {Peize Sun and Yi Jiang and Enze Xie and Zehuan Yuan and Changhu Wang and Ping Luo},
   journal =  {arXiv preprint arXiv: },
   year    =  {2020}
 }
