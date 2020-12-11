@@ -4,15 +4,18 @@
 
 ![](onenet.jpeg)
 
-**Comparisons of different label assignment methods**. H and W are height and width of feature map, respectively,
+Comparisons of different label assignment methods. H and W are height and width of feature map, respectively,
 K is number of object categories. Previous works on one-stage object detection assign labels by only position cost, such
 as (a) box IoU or (b) point distance between sample and ground-truth. In our method, however, (c) classification cost is
-additionally introduced. We discover that classification cost is the key to the success of end-to-end. Without classification
+additionally introduced. We discover that **classification cost is the key to the success of end-to-end**. Without classification
 cost, only location cost leads to redundant boxes of high confidence scores in inference, making NMS post-processing a
 necessary component.
 
 ## Introduction
-[OneNet: Towards End-to-End One-Stage Object Detection](https://peizesun.github.io/OneNet.pdf)
+[OneNet: Towards End-to-End One-Stage Object Detection](http://arxiv.org/abs/2012.05780)
+
+## Updates
+- (11/12/2020) Higher Performance for OneNet is reported by disable gradient clip.
 
 ## Comming
   - [ ] Provide models and logs
@@ -26,7 +29,7 @@ We provide two models
 
 Method | inf_time | train_time | box AP | download
 --- |:---:|:---:|:---:|:---:
-[R50_dcn](projects/OneNet/configs/onenet.res50.dcn.yaml)     | 67 FPS | 36h  | 35.2 | 
+[R50_dcn](projects/OneNet/configs/onenet.res50.dcn.yaml)     | 67 FPS | 36h  | 35.7 | 
 [R50_nodcn](projects/OneNet/configs/onenet.res50.nodcn.yaml) | 73 FPS | 29h  | 32.7 | 
 
 
