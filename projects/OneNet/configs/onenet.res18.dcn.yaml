@@ -23,4 +23,4 @@ INPUT:
   CROP:
     ENABLED: True
   FORMAT: "RGB"
-OUTPUT_DIR: 'output_onenet_r50dcn'
+OUTPUT_DIR: 'output_onenet_r18dcn'
