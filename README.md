@@ -24,8 +24,8 @@ necessary component.
   
 ## Models
 We provide two models 
-- R50_dcn is for high accuracy
-- R50_nodcn is for easy deployment.
+- dcn is for high accuracy
+- nodcn is for easy deployment.
 
 Method | inf_time | train_time | box AP | download
 --- |:---:|:---:|:---:|:---:
@@ -100,7 +100,7 @@ If you use OneNet in your research or wish to refer to the baseline results publ
 @article{peize2020onenet,
   title   =  {{OneNet}: Towards End-to-End One-Stage Object Detection},
   author  =  {Peize Sun and Yi Jiang and Enze Xie and Zehuan Yuan and Changhu Wang and Ping Luo},
-  journal =  {arXiv preprint arXiv: },
+  journal =  {arXiv preprint arXiv: 2012.05780},
   year    =  {2020}
 }
 
