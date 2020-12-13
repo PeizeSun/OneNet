@@ -29,16 +29,17 @@ We provide two models
 
 Method | inf_time | train_time | box AP | download
 --- |:---:|:---:|:---:|:---:
-[R18_dcn](projects/OneNet/configs/onenet.res18.dcn.yaml)     | 109 FPS | 20h  | 29.5 | 
-[R18_nodcn](projects/OneNet/configs/onenet.res18.nodcn.yaml) | 138 FPS | 13h  | 27.5 |
+[R18_dcn](projects/OneNet/configs/onenet.res18.dcn.yaml)     | 109 FPS | 20h  | 29.5 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
+[R18_nodcn](projects/OneNet/configs/onenet.res18.nodcn.yaml) | 138 FPS | 13h  | 27.5 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
 [R50_dcn](projects/OneNet/configs/onenet.res50.dcn.yaml)     | 67 FPS  | 36h  | 35.7 | 
 [R50_nodcn](projects/OneNet/configs/onenet.res50.nodcn.yaml) | 73 FPS  | 29h  | 32.7 | 
 
+Models are available in [Baidu Drive](https://pan.baidu.com/s/1f0lQ63UEBD-qbHTrsD97hA) by code nhr8.
 
 #### Notes
 - We observe about 0.3 AP noise.
 - The training time and inference time are on 8 NVIDIA V100 GPUs.
-- We use the models pre-trained on imagenet using torchvision. And we provide [torchvision's ResNet-18.pkl](tools/convert-torchvision-to-d2.py) model. More details can be found in [the conversion script](tools/convert-torchvision-to-d2.py).
+- We use the models pre-trained on imagenet using torchvision. And we provide [torchvision's ResNet-18.pkl](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB?usp=sharing) model. More details can be found in [the conversion script](tools/convert-torchvision-to-d2.py).
 
 ## Installation
 The codebases are built on top of [Detectron2](https://github.com/facebookresearch/detectron2) and [DETR](https://github.com/facebookresearch/detr).
