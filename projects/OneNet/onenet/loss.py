@@ -220,7 +220,7 @@ class MinCostMatcher(nn.Module):
             tgt_ids = targets[i]["labels"]
             
             if tgt_ids.shape[0] == 0:
-                indices.append(([], []))
+                indices.append((torch.as_tensor([]).to(batch_out_prob), torch.as_tensor([]).to(batch_out_prob)))
                 continue
                 
             tgt_bbox = targets[i]["boxes_xyxy"]
