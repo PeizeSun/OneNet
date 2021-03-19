@@ -55,9 +55,8 @@ class Head(nn.Module):
             if p.dim() > 1:
                 nn.init.xavier_uniform_(p)
 
-            # initialize the bias for focal loss.
-            if p.shape[-1] == self.num_classes:
-                nn.init.constant_(p, self.bias_value)
+        # initialize the bias for focal loss.
+        nn.init.constant_(self.cls_score.bias, self.bias_value)
     
     def forward(self, features_list):
         
