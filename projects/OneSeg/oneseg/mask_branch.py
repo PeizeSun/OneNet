@@ -12,9 +12,9 @@ from torch import nn
 import torch.nn.functional as F
 
 from fvcore.nn import sigmoid_focal_loss_jit
-from detectron2.layers import ShapeSpec, conv_with_kaiming_uniform
+from detectron2.layers import ShapeSpec
 
-# from adet.layers import conv_with_kaiming_uniform
+from .adet_layers import conv_with_kaiming_uniform
 from .comm import aligned_bilinear
 
 INF = 100000000
