@@ -1,0 +1,35 @@
+_BASE_: "Base-OneNet.yaml"
+MODEL:
+  MASK_ON: True
+  WEIGHTS: "detectron2://ImageNetPretrained/torchvision/R-50.pkl"
+  BACKBONE:
+    FREEZE_AT: 2
+    NAME: "build_retinanet_resnet_fpn_backbone"
+  RESNETS:
+    NORM: "FrozenBN"
+    DEPTH: 50
+    STRIDE_IN_1X1: False
+    OUT_FEATURES: ["res3", "res4", "res5"]
+    DEFORM_ON_PER_STAGE: [False, True, True, True] # on Res3,Res4,Res5
+    DEFORM_MODULATED: False
+  FPN:
+    IN_FEATURES: ["res3", "res4", "res5"]
+  OneNet:
+    DCN: False
+    NUM_CLASSES: 80
+DATASETS:
+  TRAIN: ("coco_2017_train",)
+  TEST:  ("coco_2017_val",)
+SOLVER:
+  IMS_PER_BATCH: 16
+  STEPS: (210000, 250000)
+  MAX_ITER: 270000
+INPUT:
+  MIN_SIZE_TRAIN: (480, 512, 544, 576, 608, 640, 672, 704, 736, 768, 800)
+  MAX_SIZE_TRAIN: 1333
+  MIN_SIZE_TEST: 800
+  MAX_SIZE_TEST: 1333
+  CROP:
+    ENABLED: False
+  FORMAT: "RGB"
+OUTPUT_DIR: 'output_oneseg_r50dcn'
