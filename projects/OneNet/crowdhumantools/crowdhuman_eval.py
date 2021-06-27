@@ -477,6 +477,8 @@ if __name__ == "__main__":
     parser.add_argument('--gt', default='datasets/crowdhuman/annotations/val.json', type=str)
     args = parser.parse_args()    
     
+    if not os.path.exists('output_crowdhuman'):
+        os.makedirs('output_crowdhuman')
     dt_path = "output_crowdhuman/results.odgt"
     gt_path = 'output_crowdhuman/annotation_val.odgt'
     
