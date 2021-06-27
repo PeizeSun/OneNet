@@ -21,8 +21,9 @@ from detectron2.structures import Boxes, ImageList, Instances
 from detectron2.utils.logger import log_first_n
 from fvcore.nn import giou_loss, smooth_l1_loss
 
-from .loss import SetCriterion, MinCostMatcher
-from .head import Head
+# from .loss import SetCriterion, MinCostMatcher
+from .loss_predefine import SetCriterion, MinCostMatcher
+from .head import Head, FCOSHead, RetinaHead
 from .util.box_ops import box_cxcywh_to_xyxy, box_xyxy_to_cxcywh
 from .util.misc import (NestedTensor, nested_tensor_from_tensor_list,
                        accuracy, get_world_size, interpolate,
@@ -46,24 +47,34 @@ class OneNet(nn.Module):
         self.in_features = cfg.MODEL.OneNet.IN_FEATURES
         self.num_classes = cfg.MODEL.OneNet.NUM_CLASSES
         self.num_boxes = cfg.TEST.DETECTIONS_PER_IMAGE
-
+        self.head_type = cfg.MODEL.OneNet.HEAD
+        
         # Build Backbone.
         self.backbone = build_backbone(cfg)
         self.size_divisibility = self.backbone.size_divisibility
         
         # Build Head.
-        self.head = Head(cfg=cfg, backbone_shape=self.backbone.output_shape())
-
+        if self.head_type == "CenterNet":
+            self.head = Head(cfg=cfg, backbone_shape=self.backbone.output_shape())
+        elif self.head_type == 'RetinaNet':
+            backbone_shape = self.backbone.output_shape()
+            feature_shapes = [backbone_shape[f] for f in cfg.MODEL.OneNet.IN_FEATURES]
+            self.head = RetinaHead(cfg=cfg, feature_shapes=feature_shapes)
+        elif self.head_type == "FCOS":
+            self.head = FCOSHead(cfg=cfg)
+        else:
+            raise NotImplementedError        
+        
+        # Build Criterion.
+        matcher = MinCostMatcher(cfg=cfg,
+                                 cost_class=cfg.MODEL.OneNet.CLASS_COST, 
+                                 cost_bbox=cfg.MODEL.OneNet.L1_COST, 
+                                 cost_giou=cfg.MODEL.OneNet.GIOU_COST)
+        
         # Loss parameters:
         class_weight = cfg.MODEL.OneNet.CLASS_WEIGHT
         giou_weight = cfg.MODEL.OneNet.GIOU_WEIGHT
         l1_weight = cfg.MODEL.OneNet.L1_WEIGHT
-
-        # Build Criterion.
-        matcher = MinCostMatcher(cfg=cfg,
-                                   cost_class=class_weight, 
-                                   cost_bbox=l1_weight, 
-                                   cost_giou=giou_weight)
         weight_dict = {"loss_ce": class_weight, "loss_bbox": l1_weight, "loss_giou": giou_weight}
 
         losses = ["labels", "boxes"]
@@ -107,9 +118,10 @@ class OneNet(nn.Module):
             features.append(feature)
 
         # Cls & Reg Prediction.
-        outputs_class, outputs_coord = self.head(features)
-        
-        output = {'pred_logits': outputs_class, 'pred_boxes': outputs_coord}
+        outputs_class, outputs_coord, anchors, locations, fpn_levels = self.head(features)    
+            
+        output = {'pred_logits': outputs_class, 'pred_boxes': outputs_coord,
+                 'anchors': anchors, 'locations': locations, 'fpn_levels': fpn_levels}
 
         if self.training:
             gt_instances = [x["instances"].to(self.device) for x in batched_inputs]
@@ -161,7 +173,7 @@ class OneNet(nn.Module):
         """
         Arguments:
             box_cls (Tensor): tensor of shape   (batch_size, K, H, W).
-            box_pred (Tensor): tensors of shape (batch_size, 4, H, W).
+            box_pred (Tensor): tensors of shape (batch_size, 4, H, W) .
             image_sizes (List[torch.Size]): the input image sizes
 
         Returns:

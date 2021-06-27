@@ -1,0 +1,33 @@
+_BASE_: "Base-OneNet.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/torchvision/R-50.pkl"
+  BACKBONE:
+      NAME: "build_retinanet_resnet_fpn_backbone"
+  RESNETS:
+    DEPTH: 50
+    STRIDE_IN_1X1: False
+    OUT_FEATURES: ["res3", "res4", "res5"]
+  FPN:
+    IN_FEATURES: ["res3", "res4", "res5"]
+  ANCHOR_GENERATOR:
+    SIZES: !!python/object/apply:eval ["[[x, x * 2**(1.0/3), x * 2**(2.0/3) ] for x in [32, 64, 128, 256, 512 ]]"]
+  OneNet:
+    NUM_CLASSES: 80
+    HEAD: "RetinaNet"
+    IN_FEATURES: ["p3", "p4", "p5", "p6", "p7"]
+DATASETS:
+  TRAIN: ("coco_2017_train",)
+  TEST:  ("coco_2017_val",)
+SOLVER:
+  IMS_PER_BATCH: 16
+  STEPS: (210000, 250000)
+  MAX_ITER: 270000
+INPUT:
+  MIN_SIZE_TRAIN: (640, 672, 704, 736, 768, 800, 832, 864, 896)
+  MAX_SIZE_TRAIN: 1500
+  MIN_SIZE_TEST: 800
+  MAX_SIZE_TEST: 1333
+  CROP:
+    ENABLED: True
+  FORMAT: "RGB"
+OUTPUT_DIR: 'output_onenet_r50retinanet'

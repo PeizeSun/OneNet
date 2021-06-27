@@ -15,10 +15,11 @@ necessary component.
 [OneNet: Towards End-to-End One-Stage Object Detection](http://arxiv.org/abs/2012.05780)
 
 ## Updates
+- (27/06/2021) OneNet.RetinaNet and OneNet.FCOS are available.
 - (11/12/2020) Higher Performance for OneNet is reported by disable gradient clip.
 
 ## Comming
-  - [ ] Provide models and logs
+  - [x] Provide models and logs
   - [ ] Support to caffe, onnx, tensorRT
   - [ ] Support to MobileNet
   
@@ -29,16 +30,18 @@ We provide two models
 
 Method | inf_time | train_time | box AP | download
 --- |:---:|:---:|:---:|:---:
-[R18_dcn](projects/OneNet/configs/onenet.res18.dcn.yaml)     | 109 FPS | 20h  | 29.5 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
-[R18_nodcn](projects/OneNet/configs/onenet.res18.nodcn.yaml) | 138 FPS | 13h  | 27.5 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
-[R50_dcn](projects/OneNet/configs/onenet.res50.dcn.yaml)     | 67 FPS  | 36h  | 35.7 | 
-[R50_nodcn](projects/OneNet/configs/onenet.res50.nodcn.yaml) | 73 FPS  | 29h  | 32.7 | 
+[R18_dcn](projects/OneNet/configs/onenet.res18.dcn.yaml)     | 109 FPS | 20h  | 29.9 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB) \| [log](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
+[R18_nodcn](projects/OneNet/configs/onenet.res18.nodcn.yaml) | 138 FPS | 13h  | 27.7 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB) \| [log](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
+[R50_dcn](projects/OneNet/configs/onenet.res50.dcn.yaml)     | 67 FPS  | 36h  | 35.7 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB) \| [log](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
+[R50_nodcn](projects/OneNet/configs/onenet.res50.nodcn.yaml) | 73 FPS  | 29h  | 32.7 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB) \| [log](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB) 
+[R50_RetinaNet](projects/OneNet/configs/onenet.retinanet.res50.yaml) | 26 FPS  | 31h  | 37.5 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB) \| [log](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
+[R50_FCOS](projects/OneNet/configs/onenet.fcos.res50.yaml) | 27 FPS  | 21h  | 38.9 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB) \| [log](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
 
 Models are available in [Baidu Drive](https://pan.baidu.com/s/1f0lQ63UEBD-qbHTrsD97hA) by code nhr8.
 
 #### Notes
 - We observe about 0.3 AP noise.
-- The training time and inference time are on 8 NVIDIA V100 GPUs.
+- The training time and inference time are on 8 NVIDIA V100 GPUs. We observe the same type of GPUs in different clusters may cost different time.
 - We use the models pre-trained on imagenet using torchvision. And we provide [torchvision's ResNet-18.pkl](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB?usp=sharing) model. More details can be found in [the conversion script](tools/convert-torchvision-to-d2.py).
 
 ## Installation

@@ -9,7 +9,7 @@ MODEL:
     OUT_FEATURES: ["res2", "res3", "res4", "res5"]
 SOLVER:
   IMS_PER_BATCH: 64
-  BASE_LR: 0.00005
+  BASE_LR: 0.00004
   STEPS: (210000, 250000)
   MAX_ITER: 270000
   WARMUP_FACTOR: 0.01
@@ -18,7 +18,7 @@ SOLVER:
   OPTIMIZER: "ADAMW"
   BACKBONE_MULTIPLIER: 1.0  # keep same with BASE_LR.
   CLIP_GRADIENTS:
-    ENABLED: False
+    ENABLED: True
     CLIP_TYPE: "full_model"
     CLIP_VALUE: 1.0
     NORM_TYPE: 2.0
