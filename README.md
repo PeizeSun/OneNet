@@ -15,6 +15,7 @@ necessary component.
 [OneNet: Towards End-to-End One-Stage Object Detection](http://arxiv.org/abs/2012.05780)
 
 ## Updates
+- (28/06/2021) OneNet.RetinaNet and OneNet.FCOS on CrowdHuman are available.
 - (27/06/2021) OneNet.RetinaNet and OneNet.FCOS are available.
 - (11/12/2020) Higher Performance for OneNet is reported by disable gradient clip.
 
@@ -23,7 +24,7 @@ necessary component.
   - [ ] Support to caffe, onnx, tensorRT
   - [ ] Support to MobileNet
   
-## Models
+## Models on COCO
 We provide two models 
 - dcn is for high accuracy
 - nodcn is for easy deployment.
@@ -46,7 +47,7 @@ Models are available in [Baidu Drive](https://pan.baidu.com/s/1f0lQ63UEBD-qbHTrs
 
 ## Models on CrowdHuman
 
-Method | inf_time | train_time | AP50 ｜ mMR | recall | download
+Method | inf_time | train_time | AP50 | mMR | recall | download
 --- |:---:|:---:|:---:|:---:|:---:|:---:
 [R50_RetinaNet](projects/OneNet/configs/onenet.retinanet.res50.crowdhuman.yaml) | 26 FPS  | 11.5h | 90.9 | 48.8 | 98.0 |[model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB) \| [log](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
 [R50_FCOS](projects/OneNet/configs/onenet.fcos.res50.crowdhuman.yaml) | 27 FPS  | 4.5h  | 90.6 | 48.6 | 97.7 | [model](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB) \| [log](https://drive.google.com/drive/folders/1LnHMj7pkJhODeZTNHW-UcUZxybKbQmTB)
