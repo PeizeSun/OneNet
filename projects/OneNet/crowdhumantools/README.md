@@ -11,7 +11,6 @@ Models are available in [Baidu Drive](https://pan.baidu.com/s/1f0lQ63UEBD-qbHTrs
 - The evalution code is built on top of [cvpods](https://github.com/Megvii-BaseDetection/cvpods).
 - The default evaluation code in training should be ignored, since it only considers at most 100 objects in one image, while crowdhuman image contains more than 100 objects.
 - The training time and inference time are on 8 NVIDIA V100 GPUs. We observe the same type of GPUs in different clusters may cost different time.
-- More training steps are in the [crowdhumantools](https://github.com/PeizeSun/OneNet/tree/main/projects/OneNet/crowdhumantools).
 
 #### Installation
 
