@@ -1,4 +1,4 @@
-## OneNet: Towards End-to-End One-Stage Object Detection
+## OneNet: What Makes for End-to-End Object Detection?
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -12,7 +12,9 @@ cost, only location cost leads to redundant boxes of high confidence scores in i
 necessary component.
 
 ## Introduction
-[OneNet: Towards End-to-End One-Stage Object Detection](http://arxiv.org/abs/2012.05780)
+
+arxiv [OneNet: Towards End-to-End One-Stage Object Detection](http://arxiv.org/abs/2012.05780)
+paper [What Makes for End-to-End Object Detection?](http://proceedings.mlr.press/v139/sun21b/sun21b.pdf)
 
 ## Updates
 - (28/06/2021) OneNet.RetinaNet and OneNet.FCOS on CrowdHuman are available.
@@ -118,11 +120,16 @@ If you use OneNet in your research or wish to refer to the baseline results publ
 
 ```BibTeX
 
-@article{peize2020onenet,
-  title   =  {{OneNet}: Towards End-to-End One-Stage Object Detection},
-  author  =  {Peize Sun and Yi Jiang and Enze Xie and Zehuan Yuan and Changhu Wang and Ping Luo},
-  journal =  {arXiv preprint arXiv: 2012.05780},
-  year    =  {2020}
+@InProceedings{peize2020onenet,
+  title = 	 {What Makes for End-to-End Object Detection?},
+  author =       {Sun, Peize and Jiang, Yi and Xie, Enze and Shao, Wenqi and Yuan, Zehuan and Wang, Changhu and Luo, Ping},
+  booktitle = 	 {Proceedings of the 38th International Conference on Machine Learning},
+  pages = 	 {9934--9944},
+  year = 	 {2021},
+  volume = 	 {139},
+  series = 	 {Proceedings of Machine Learning Research},
+  publisher =    {PMLR},
 }
+
 
 ```
