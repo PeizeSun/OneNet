@@ -13,9 +13,9 @@ necessary component.
 
 ## Introduction
 
-arxiv: [OneNet: Towards End-to-End One-Stage Object Detection](http://arxiv.org/abs/2012.05780)
+arxiv: [OneNet: Towards End-to-End One-Stage Object Detection](https://arxiv.org/abs/2012.05780v1)
 
-paper: [What Makes for End-to-End Object Detection?](http://proceedings.mlr.press/v139/sun21b/sun21b.pdf)
+paper: [What Makes for End-to-End Object Detection?](https://arxiv.org/abs/2012.05780)
 
 ## Updates
 - (28/06/2021) OneNet.RetinaNet and OneNet.FCOS on CrowdHuman are available.
