@@ -186,6 +186,7 @@ setup(
         "pycocotools>=2.0.1",
         "future",  # used by caffe2
         "pydot",  # used to save caffe2 SVGs
+        "scipy"
     ],
     extras_require={
         "all": ["shapely", "psutil"],
